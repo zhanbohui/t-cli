@@ -8,7 +8,29 @@ const actionsMap = {
     description: 'create project',
     alias: 'cr',
     examples: [
-      't-cli create <template-name>',
+      't-cli create',
+    ],
+  },
+  delete: { // 删除模版
+    description: 'delete project',
+    alias: 'd',
+    examples: [
+      't-cli delete',
+    ],
+  },
+  list: { // 所有模版
+    description: 'list',
+    alias: 'l',
+    examples: [
+      't-cli list',
+    ],
+  },
+  init: { // 初始化
+    description: 't-cli init',
+    alias: 'i',
+    examples: [
+      't-cli init',
+      't-cli i',
     ],
   },
   config: {
@@ -32,21 +54,18 @@ Object.keys(actionsMap).forEach(action => {
       if (action === '*') {
         console.log(actionsMap[action].description);
       } else {
-        require(path.resolve(__dirname, action))(...process.argv.slice(3));
+        // require(path.resolve(__dirname, action))(...process.argv.slice(3));
+        require(path.resolve(__dirname, action))();
       }
     });
 });
 
-program.version(version)
-  .parse(process.argv)
+program.version(version);
 
-program.on('--help', () => {
-  console.log('Examples');
-  Object.keys(actionsMap).forEach(action => {
-    (actionsMap[action].examples || []).forEach(example => {
-      console.log(`${example}`);
-    })
-  })
-});
+program.usage('<command>');
 
-// console.log('welcome');
+program.parse(process.argv);
+
+if (program.args.length) {
+  // program.help();
+}
