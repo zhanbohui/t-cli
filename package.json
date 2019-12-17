@@ -1,0 +1,32 @@
+{
+  "name": "t-cli",
+  "version": "1.0.0",
+  "description": "简单的前端脚手架",
+  "main": "index.js",
+  "bin": {
+    "t-cli": "./bin/www"
+  },
+  "scripts": {
+    "lint": "eslint src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhanbohui/t-cli.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhanbohui/t-cli/issues"
+  },
+  "homepage": "https://github.com/zhanbohui/t-cli#readme",
+  "devDependencies": {
+    "eslint": "^6.7.2",
+    "husky": "^3.1.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "commander": "^4.0.1"
+  }
+}
